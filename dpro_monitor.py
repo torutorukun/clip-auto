@@ -253,6 +253,7 @@ def main():
     seen          = load_json(SEEN_FILE, {})
     buzz_notified = load_json(BUZZ_FILE, {})
     new_ads, buzz_ads, all_fetched = [], [], []
+    notified_urls = set()
 
     for target in targets:
         label        = target["label"]
@@ -292,7 +293,7 @@ def main():
 
         for item in target_items:
             url = item.get("production_url", "")
-            if not url or url in seen[label]:
+            if not url or url in seen[label] or url in notified_urls:
                 continue
             # public_dateが直近30日以内のものだけ新着通知
             pub = item.get("creation_time", "")
@@ -305,6 +306,7 @@ def main():
                     pass
             new_ads.append(item)
             seen[label].append(url)
+            notified_urls.add(url)
 
         for item in check_buzz(target_items):
             url = item.get("production_url", "")

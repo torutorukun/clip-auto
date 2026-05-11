@@ -51,7 +51,7 @@
   },
   {
     "label": "SNSマーケ研究室",
-    "search_keywords": ["SNSマーケ研究室", "SONOMAMA", "インフルエンサー発掘プロジェクト", "フリーランス育成"],
+    "search_keywords": ["SNSマーケ研究室", "インフルエンサー発掘プロジェクト"],
     "advertiser_names": ["株式会社メディアエイド"]
   },
   {
@@ -90,5 +90,28 @@
     "label": "LEC",
     "search_keywords": ["LEC", "LECマスターブートキャンプ"],
     "advertiser_names": ["株式会社LEC", "式会社LEC"]
+  },
+  {
+    "label": "HRmaker",
+    "search_keywords": ["HRmaker", "hrmaker_ryoma"],
+    "advertiser_names": ["HRmaker"]
+  },
+  {
+    "label": "Chokusai",
+    "search_keywords": ["Chokusai", "チョク採", "直接採用"],
+    "advertiser_names": ["株式会社これから"],
+    "product_names": ["チョク採", "Chokusai", "COREKARA"]
+  },
+  {
+    "label": "キャリコンジョブ",
+    "search_keywords": ["キャリコンジョブ", "BRANU"],
+    "advertiser_names": ["BRANU株式会社"],
+    "product_names": ["キャリコンジョブ", "BRANU"]
+  },
+  {
+    "label": "RecUp",
+    "search_keywords": ["RecUp", "Delight"],
+    "advertiser_names": ["株式会社Delight"],
+    "product_names": ["RecUp"]
   }
 ]
