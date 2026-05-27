@@ -50,11 +50,6 @@
     "advertiser_names": ["WSS CLASS"]
   },
   {
-    "label": "SNSマーケ研究室",
-    "search_keywords": ["SNSマーケ研究室", "インフルエンサー発掘プロジェクト"],
-    "advertiser_names": ["株式会社メディアエイド"]
-  },
-  {
     "label": "Driven Properties",
     "search_keywords": ["Driven Properties", "ドリブン・プロパティーズ"],
     "advertiser_names": ["Driven Properties", "ドリブン・プロパティーズ"],
@@ -70,11 +65,6 @@
     "label": "シックスレイズ",
     "search_keywords": ["シックスレイズ", "アドレイズプラス"],
     "advertiser_names": ["株式会社リソースクリエイション"]
-  },
-  {
-    "label": "freee",
-    "search_keywords": ["freee", "フリー", "freee会計", "freee人事労務"],
-    "advertiser_names": ["フリー株式会社"]
   },
   {
     "label": "楽待",
