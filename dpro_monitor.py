@@ -131,6 +131,18 @@ def save_json(path, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+# 除外広告主・キーワード: watch_targetsに一致しても通知/リライトしない（freee等）
+EXCLUDE_ADVERTISERS = {"フリー株式会社"}
+EXCLUDE_KEYWORDS = ["freee"]
+
+
+def is_excluded(item):
+    if item.get("advertiser_name", "") in EXCLUDE_ADVERTISERS:
+        return True
+    blob = f"{item.get('product_name', '')} {item.get('advertiser_name', '')}".lower()
+    return any(kw.lower() in blob for kw in EXCLUDE_KEYWORDS)
+
+
 def fetch_by_keyword(token, search_kw, adv_names, interval=30, prod_names=None):
     """search_kwで検索し、advertiser_names or product_namesでフィルタ"""
     today = datetime.now().strftime("%Y-%m-%d")
@@ -165,6 +177,8 @@ def fetch_by_keyword(token, search_kw, adv_names, interval=30, prod_names=None):
         # advertiser_name or product_name(部分一致)でフィルタ
         matched = []
         for i in items:
+            if is_excluded(i):
+                continue
             if i.get("advertiser_name") in adv_names:
                 matched.append(i)
             elif prod_names:
