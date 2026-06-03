@@ -20,6 +20,7 @@ SEEN_FILE    = SCRIPT_DIR / "seen_ads.json"
 BUZZ_FILE    = SCRIPT_DIR / "buzz_notified.json"
 DPRO_API_URL = "https://api.kashika-20mile.com/api/v1/items"
 BUZZ_TOP_PCT = 0.20
+MIN_PLAY_COUNT = 10000  # 再生数がこの値未満の広告・動画は通知しない
 
 GOG_ACCOUNT  = "yotayamaguchi2@gmail.com"
 SHEETS_ID    = "1_d-H-6C_deAbtDySeC6ywbqQ_tFRZyR5EXR79mwnShE"
@@ -318,6 +319,9 @@ def main():
                         continue
                 except ValueError:
                     pass
+            # 再生数10000未満は通知しない（seenに記録せず、伸びたら次回通知）
+            if pc(item.get("play_count")) < MIN_PLAY_COUNT:
+                continue
             new_ads.append(item)
             seen[label].append(url)
             notified_urls.add(url)
@@ -325,6 +329,9 @@ def main():
         for item in check_buzz(target_items):
             url = item.get("production_url", "")
             if not url or url in buzz_notified[label]:
+                continue
+            # 再生数10000未満は通知しない
+            if pc(item.get("play_count")) < MIN_PLAY_COUNT:
                 continue
             buzz_ads.append(item)
 
